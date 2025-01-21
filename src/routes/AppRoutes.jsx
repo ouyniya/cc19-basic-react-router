@@ -1,25 +1,38 @@
 import React from 'react'
 import { Routes, Route } from "react-router"
-import MainNav from '../components/MainNav'
+import Layout from '../layouts/Layout'
+import Home from '../pages/Home'
+import About from '../pages/About'
+import Contact from '../pages/Contact'
+import Login from '../pages/Login'
+import Register from '../pages/Register'
 
 function AppRoutes() {
   return (
     <div>
-        <MainNav />
 
-    <Routes>
-      <Route path="/" element={<a href='/about' style={{ color: 'blue' }}>Home</a>}/>
-      <Route path="about" element={<a href='/' style={{ color: 'blue' }}>About</a>}/>
-      <Route path="contact" element={<a href='/' style={{ color: 'blue' }}>Contact</a>}/>
-      <Route path="login" element={<a href='/' style={{ color: 'blue' }}>Log in Page</a>}/>
-      <Route path="register" element={<a href='/' style={{ color: 'blue' }}>Register</a>}/>
+        <Routes>
+            {/* public */}
+            <Route path='/' element={<Layout />}>
+                <Route index element={<a href='/about'><Home /></a>}/>
+                <Route path="about" element={<a href='/' ><About /></a>}/>
+                <Route path="contact" element={<a href='/' ><Contact /></a>}/>
+                <Route path="login" element={<a href='/' ><Login /></a>}/>
+                <Route path="register" element={<a href='/' ><Register /></a>}/>
+            </Route>
 
-      <Route path="admin"> {/* parent */}
-        <Route path="dashboard" element={<a href='/' style={{ color: 'green' }}>Dashboard page</a>}/>
-        <Route path="manage" element={<a href='/' style={{ color: 'red' }}>Manage page</a>}/>
-        <Route path="setting" element={<a href='/' style={{ color: 'red' }}>Setting page</a>}/>
-      </Route>
-    </Routes>
+            {/* private */}
+            <Route path="admin" element={
+                <>
+                {/* <h1>Admin Layout</h1>
+                <Outlet /> */}
+                <Layout />
+                </>}> {/* parent */}
+                <Route index element={<a href='/' >Dashboard page</a>}/>
+                <Route path="manage" element={<a href='/' >Manage page</a>}/>
+                <Route path="setting" element={<a href='/' >Setting page</a>}/>
+            </Route>
+        </Routes>
     </div>
   )
 }
