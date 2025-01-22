@@ -26,6 +26,14 @@ function ReactUserState() {
         })
     }
 
+    const hdlBtn2Dev = (n) => {
+        setNumber2(prev => {
+            return {
+                num: prev.num / n
+            }
+        })
+    }
+
     return (
     <div className='flex-col gap-2'>
         <h1 className='text-8xl'>{number}</h1>
@@ -64,6 +72,12 @@ function ReactUserState() {
             className='rounded-md bg-blue-300 :hover:duration-300 p-2 hover:scale-105'
         >
             multiply 2
+        </button>
+        <button
+            onClick={() => hdlBtn2Dev(2)}
+            className='rounded-md bg-amber-300 :hover:duration-300 p-2 hover:scale-105'
+        >
+            divide 2
         </button>
     </div>
   )

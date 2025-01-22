@@ -11,6 +11,7 @@ function MainNav() {
             <Link to='contact'>Contact</Link>
             <Link to='recap'>Recap</Link>
             <Link to='reactUserState'>ReactUserState</Link>
+            <Link to='easyZustand'>EasyZustand</Link>
         </div>
         
         <div className="flex gap-5">
