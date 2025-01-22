@@ -4,13 +4,15 @@ import useProductStore from '../pages/store/product-store';
 function ProductCard({ product }) {
 
   const actionAddToCart = useProductStore(state => state.actionAddToCart)
+  const actionRemoveProduct = useProductStore(state => state.actionRemoveProduct)
 
   return (
     <div className="shadow-md max-w-80 m-auto rounded-t-lg">
-        <div
-        className='flex justify-center w-full'
-        ><img src={product?.images[0]}  
-    className='object-cover w-[200px] h-[200px]' /></div>
+      <button
+      onClick={() => actionRemoveProduct(product.id)}>x</button>
+        <div className='flex justify-center w-full'>
+          <img src={product?.images[0]} className='object-cover w-[200px] h-[200px]' />
+        </div>
     
     <h1 className='text-center text-2xl text-'>{product.title}</h1>
     <p className="text-red-500 text-[30px] text-center">${product?.price}</p>

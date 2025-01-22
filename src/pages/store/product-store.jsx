@@ -16,6 +16,7 @@ const productStore = (set) => ({
             }
     },
     actionAddToCart: (product) => {
+        // console.log(product)
         set((state) => ({
             cart: [...state.cart, product]
         }))
@@ -25,6 +26,11 @@ const productStore = (set) => ({
             cart: []
         }))
     },
+    actionRemoveProduct: (id) => {
+        set((state) => ({
+            cart: state.cart.filter((el) => el.id !== id)
+        }))
+    }
 
 })
 

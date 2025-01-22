@@ -15,8 +15,8 @@ function Mycart() {
         onClick={actionClear}
         className='bg-slate-400 p-2 rounded-md'
         >Clear</button>
-        {cart.map((product, index) => (
-            <ProductCard key={index} product={product}/>
+        {cart.map((product) => (
+            <ProductCard key={product.id} product={product}/>
         ))}
     </div>
   )
