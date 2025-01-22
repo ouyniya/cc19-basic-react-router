@@ -30,6 +30,9 @@ const productStore = (set) => ({
 
 const persistStore = {
     name: 'product-store',
+    partialize: (state) => ({
+        cart: state.cart,
+    })
 }
 
 const useProductStore = create(persist(productStore, persistStore))
