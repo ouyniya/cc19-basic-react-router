@@ -1,30 +1,24 @@
 import React from 'react'
-import { create } from 'zustand'
 import useUserStore from '../routes/userStore'
 
-    // const userStore = () => ({
-    //     firstName: 'nnn',
-    //     lastName: 'mmmm',
-    //     address: {
-    //         street: '1234',
-    //         zipcode: '567',
-    //     }
-    // })
-
-    // const useUserStore = create(userStore)
-
-    // const kk = useUserStore((state) => state.firstName)
-    // console.log(kk)
-
-    
-    function EasyZustand() {
+function EasyZustand() {
 
     const firstName = useUserStore(state => state.firstName)
-    console.log(firstName)
+    const address = useUserStore(state => state.address)
+    const profile = useUserStore(state => state.profile)
+    // console.log(profile)
+    const products = useUserStore(state => state.products)
+    console.log(products[1].title)
 
   return (
     <div>
-        EasyZustand
+        <p>
+            {profile[0]}
+            <br />
+            {address.zipcode}
+            <br />
+            {products[1].title}
+        </p>
     </div> 
   )
 }
