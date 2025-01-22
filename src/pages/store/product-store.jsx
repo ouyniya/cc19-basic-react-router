@@ -20,9 +20,18 @@ const productStore = (set) => ({
             cart: [...state.cart, product]
         }))
     },
+    actionClear: () => {
+        set(() => ({
+            cart: []
+        }))
+    },
 
 })
 
-const useProductStore = create(persist(productStore, {name: 'product-store'}))
+const persistStore = {
+    name: 'product-store',
+}
+
+const useProductStore = create(persist(productStore, persistStore))
 
 export default useProductStore
