@@ -11,6 +11,7 @@ import Register from '../pages/Register'
 import Recap from '../pages/Recap'
 import ReactUserState from '../pages/ReactUserState'
 import EasyZustand from '../pages/EasyZustand'
+import Product from '../pages/Product'
 
 // admin pages
 import Dashboard from '../pages/admin/Dashboard'
@@ -39,6 +40,8 @@ function AppRoutes() {
                     <ReactUserState /></>}/>
                 <Route path="easyZustand" element={<>
                     <EasyZustand /></>}/>
+                <Route path="product" element={<>
+                    <Product /></>}/>
             </Route>
 
             {/* private */}
